@@ -19,4 +19,4 @@ jobs:
           cache: 'maven'
 
       - name: Build
-        run: mvn --batch-mode --show-version --no-transfer-progress -D CI=GitHub install
+        run: mvn --batch-mode --show-version --no-transfer-progress -DCI=GitHub verify
