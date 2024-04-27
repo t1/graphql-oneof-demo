@@ -1,0 +1,3 @@
+= GraphQL OneOf Demo
+
+This is a simple demo of how to use the `@oneOf` directive in SmallRye GraphQL on WildFly.
