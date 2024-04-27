@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.eclipse.microprofile.graphql.Id;
 import org.eclipse.microprofile.graphql.Input;
+import org.eclipse.microprofile.graphql.Name;
 import org.eclipse.microprofile.graphql.NonNull;
 import org.eclipse.microprofile.graphql.Query;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,7 @@ import static org.assertj.core.api.BDDAssertions.then;
 class UsersIT {
     @GraphQLClientApi
     interface Api {
-        @Query User user(@NonNull By by);
+        @Query User user(@Name("by") @NonNull By by);
     }
 
     @Data public static class User {
