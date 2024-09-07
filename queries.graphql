@@ -1,29 +1,39 @@
-query user1 {
-    user(by: {id:1}) {
-        slug
-        name
-    }
+query userById {
+  user(by: {id:123}) {
+    slug
+    name
+  }
 }
 
-query userA {
-    user(by: {email: "alice@nowhere.com"}) {
-        slug
-        name
-    }
+query userByEmail {
+  user(by: {email: "alice@nowhere.com"}) {
+    slug
+    name
+  }
 }
 
-query two {
-    tom: user(by: { id: 1 }) {
-        slug
-    }
+query twoWithOne {
+  tom: user(by: { id: 1 }) {
+    slug
+  }
 
-    jerry: user(by: { email: "jerry@warnerbros.com" }) {
-        slug
-    }
+  jerry: user(by: { email: "jerry@warnerbros.com" }) {
+    slug
+  }
 }
 
 query invalid {
-    user(by: { id: 1, email: "jerry@warnerbros.com" }) {
-        name
-    }
+  user(by: { id: 1, email: "jerry@warnerbros.com" }) {
+    name
+  }
+}
+
+mutation addUser {
+  add(oneOf: {user: { name: "Jane", slug: "foo" }})
+  #addUser(user: { name: "Jane", slug: "foo" })
+}
+
+mutation addComment {
+  add(oneOf: {comment: { text: "bar" }})
+  #addComment(comment: { text: "bar" })
 }
