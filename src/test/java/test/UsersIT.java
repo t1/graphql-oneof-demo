@@ -5,6 +5,7 @@ import io.smallrye.graphql.client.typesafe.api.TypesafeGraphQLClientBuilder;
 import org.eclipse.microprofile.graphql.Id;
 import org.eclipse.microprofile.graphql.Input;
 import org.eclipse.microprofile.graphql.Mutation;
+import org.eclipse.microprofile.graphql.Name;
 import org.eclipse.microprofile.graphql.NonNull;
 import org.eclipse.microprofile.graphql.Query;
 import org.junit.jupiter.api.Test;
@@ -14,9 +15,10 @@ import static org.assertj.core.api.BDDAssertions.then;
 class UsersIT {
     @GraphQLClientApi
     interface Api {
-        @Query User user(@NonNull By by);
+        // the @Name annotations fix the GitHub Action build... no idea what's happening here: the pom says compile with parameters
+        @Query User user(@Name("by") @NonNull By by);
 
-        @Mutation String add(UserOrComment oneOf);
+        @Mutation String add(@Name("oneOf") UserOrComment oneOf);
     }
 
     record User(String slug) {}
