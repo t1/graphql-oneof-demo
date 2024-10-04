@@ -16,7 +16,7 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.parameters>true</maven.compiler.parameters>
 
-        <junit.version>5.11.1</junit.version>
+        <junit.version>5.11.2</junit.version>
         <smallrye-graphql.version>2.10.0</smallrye-graphql.version>
     </properties>
 
