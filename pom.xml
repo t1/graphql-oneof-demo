@@ -17,7 +17,7 @@
         <maven.compiler.parameters>true</maven.compiler.parameters>
 
         <junit.version>5.11.2</junit.version>
-        <smallrye-graphql.version>2.10.0</smallrye-graphql.version>
+        <smallrye-graphql.version>2.11.0</smallrye-graphql.version>
     </properties>
 
     <dependencies>
