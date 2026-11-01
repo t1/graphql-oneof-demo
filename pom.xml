@@ -17,6 +17,7 @@
         <maven.compiler.parameters>true</maven.compiler.parameters>
 
         <junit.version>6.1.3</junit.version>
+        <lombok.version>1.18.48</lombok.version>
         <smallrye-graphql.version>2.18.5</smallrye-graphql.version>
     </properties>
 
@@ -76,6 +77,21 @@
         <defaultGoal>wildfly:dev</defaultGoal>
         <finalName>ROOT</finalName>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.16.0</version>
+                <configuration>
+                    <proc>full</proc>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
