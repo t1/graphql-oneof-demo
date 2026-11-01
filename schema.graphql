@@ -33,6 +33,7 @@ type Mutation {
   add(oneOf: UserOrCommentInput): String
   addComment(comment: CommentInput): String
   addUser(user: UserInput): String
+  updateUser(userInput: UserInputInput): String
 }
 
 "Query root"
@@ -60,6 +61,16 @@ input CommentInput {
   text: String
 }
 
+input NameOrNotInput @oneOf {
+  delete: Boolean
+  name: String
+}
+
+input SlugOrNotInput @oneOf {
+  delete: Boolean
+  slug: String
+}
+
 input UserByInput @oneOf {
   email: String
   id: ID
@@ -68,6 +79,11 @@ input UserByInput @oneOf {
 input UserInput {
   name: String
   slug: String
+}
+
+input UserInputInput {
+  name: NameOrNotInput
+  slug: SlugOrNotInput
 }
 
 input UserOrCommentInput @oneOf {

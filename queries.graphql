@@ -37,3 +37,7 @@ mutation addComment {
   add(oneOf: {comment: { text: "bar" }})
   #addComment(comment: { text: "bar" })
 }
+
+mutation updateUser {
+  updateUser(userInput: { name: { delete: true }, slug: { slug: "foo" } })
+}

@@ -3,6 +3,7 @@ package com.github.t1.graphqloneofdemo;
 import io.smallrye.graphql.api.OneOf;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Id;
+import org.eclipse.microprofile.graphql.Input;
 import org.eclipse.microprofile.graphql.Mutation;
 import org.eclipse.microprofile.graphql.NonNull;
 import org.eclipse.microprofile.graphql.Query;
@@ -34,5 +35,15 @@ public class Users {
         return oneOf.user != null ? addUser(oneOf.user) : addComment(oneOf.comment);
     }
 
+    @Mutation public String updateUser(UserInput userInput) {
+        return "updated " + userInput;
+    }
+
     @OneOf public record UserOrComment(User user, Comment comment) {}
+
+    @Input public record UserInput(SlugOrNot slug, NameOrNot name) {}
+
+    @OneOf public record SlugOrNot(String slug, Boolean delete) {}
+
+    @OneOf public record NameOrNot(String name, Boolean delete) {}
 }
